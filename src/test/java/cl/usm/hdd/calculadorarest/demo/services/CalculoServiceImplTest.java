@@ -37,14 +37,25 @@ class CalculoServiceImplTest {
 
     @Test
     void calcularDivisionByZero() throws OperacionException {
-        double resp = cs.calcular(4,0,"/");
-        assert(OperacionException(),resp);
+        boolean ok = true;
+
+        try{
+            double resp = cs.calcular(4,0,"/");
+        }catch(Exception ex) {
+            ok = false;
+        }
+        assertFalse(ok);
     }
 
     @Test
     void calcularDefaultCase() throws OperacionException {
-        double resp = cs.calcular(4,2,"**");
-        assertEquals(2.0,resp);
+        boolean ok = true;
+        try{
+            double resp = cs.calcular(4,2,"**");
+        }catch(Exception ex) {
+            ok = false;
+        }
+        assertFalse(ok);
     }
 
 }
